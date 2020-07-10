@@ -9,6 +9,7 @@
       v-model="$store.state.drawer"
       absolute
       temporary
+      
     >
       <v-list-item>
         <v-list-item-avatar>
