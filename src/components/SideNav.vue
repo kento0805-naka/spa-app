@@ -1,14 +1,10 @@
 <template>
-  <v-sheet
-    height="100vh"
-    class="overflow-hidden"
-    style="position: relative;"
-  >
 
     <v-navigation-drawer
       v-model="$store.state.drawer"
       absolute
       temporary
+      
     >
       <v-list-item>
         <v-list-item-avatar>
@@ -22,12 +18,13 @@
 
       <v-divider></v-divider>
 
-      <v-list dense>
+      <v-list dense rounded>
 
         <v-list-item
           v-for="item in items"
           :key="item.title"
           link
+          :to="item.link"
         >
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
@@ -39,7 +36,6 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-  </v-sheet>
 </template>
 
 <script>
@@ -47,7 +43,8 @@
     data () {
       return {
         items: [
-          { title: '連絡先一覧', icon: 'mdi-menu' },
+          { title: 'ホーム', icon: 'mdi-home', link: { name: 'home' }},
+          { title: '連絡先一覧', icon: 'mdi-menu', link: { name: 'addresses' }},
         ],
       }
     },
