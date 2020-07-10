@@ -8,15 +8,19 @@
       <v-spacer></v-spacer>
     </v-app-bar>
 
+    <SideNav/>
+
     <v-content>
     </v-content>
   </v-app>
 </template>
 
 <script>
+import SideNav from './components/SideNav'
 export default {
   name: 'App',
   components: {
+    SideNav
   },
   data () {
     return {
