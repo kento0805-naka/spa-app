@@ -4,24 +4,9 @@
     class="overflow-hidden"
     style="position: relative;"
   >
-    <v-container class="fill-height">
-      <v-row
-        align="center"
-        justify="center"
-      >
-        <v-btn
-          color="pink"
-          dark
-          @click.stop="drawer = !drawer"
-          
-        >
-          Toggle
-        </v-btn>
-      </v-row>
-    </v-container>
 
     <v-navigation-drawer
-      v-model="drawer"
+      v-model="$store.state.drawer"
       absolute
       temporary
     >
@@ -61,7 +46,6 @@
   export default {
     data () {
       return {
-        drawer: null,
         items: [
           { title: '連絡先一覧', icon: 'mdi-menu' },
         ],
