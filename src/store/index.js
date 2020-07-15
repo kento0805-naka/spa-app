@@ -41,13 +41,15 @@ export default new Vuex.Store({
     toggleSideMenu ({ commit }) {
       commit('toggleSideMenu')
     },
-    addAddress ({ commit }, address) {
+    addAddress ({ getters, commit }, address) {
+      if (getters.uid) firebase.firestore().collection(`users/${getters.uid}/addresses`).add(address)
       commit('addAddress', address)
     }
   },
   getters: {
     userName: state => state.login_user ? state.login_user.displayName : '',
     photoURL: state => state.login_user ? state.login_user.phtoURL : '',
+    uid: state => state.login_user ? state.login_user.uid : null,
   },
   modules: {
   }

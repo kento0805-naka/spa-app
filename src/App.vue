@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app color="primary" dark>
-      <v-app-bar-nav-icon @click="toggleSideMenu"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon v-show="$store.state.login_user" @click="toggleSideMenu"></v-app-bar-nav-icon>
       <v-toolbar-title>
         <span>マイアドレス帳</span>
       </v-toolbar-title>
@@ -33,8 +33,10 @@ export default {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.setLoginUser(user)
+        if (this.$router.currentRoute.name === 'Home') this.$router.push({ name: 'addresses' })
       } else {
         this.deleteLoginUser()
+        this.$router.push({ name: 'Home' })
       }
     })
   },

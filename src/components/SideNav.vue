@@ -45,7 +45,6 @@ import { mapGetters } from 'vuex'
     data () {
       return {
         items: [
-          { title: 'ホーム', icon: 'mdi-home', link: { name: 'Home' }},
           { title: '連絡先一覧', icon: 'mdi-menu', link: { name: 'addresses' }},
         ],
       }
