@@ -8,11 +8,11 @@
     >
       <v-list-item>
         <v-list-item-avatar>
-          <v-img src="https://www.akb48.at/wp-content/uploads/2019/09/kaas_190905010.jpg"></v-img>
+          <v-img v-if="photoURL" :src="photoURL"></v-img>
         </v-list-item-avatar>
 
         <v-list-item-content>
-          <v-list-item-title>Kento Nakamura</v-list-item-title>
+          <v-list-item-title>{{ userName }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
@@ -39,14 +39,18 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
   export default {
     data () {
       return {
         items: [
-          { title: 'ホーム', icon: 'mdi-home', link: { name: 'Home' }},
           { title: '連絡先一覧', icon: 'mdi-menu', link: { name: 'addresses' }},
         ],
       }
     },
+    computed: {
+      ...mapGetters(['userName', 'photoURL'])
+    }
   }
 </script>
